@@ -1,45 +1,46 @@
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const StyledFooter = styled.footer`
   height: 150px;
-  border-top: 4px solid black;
+  border-top: 2px solid gray;
   padding: 0 20px;
-  
-
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  > div{
-    height: 80%;
+  > div {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
 
-    > a{
-      height: 50%;
-      > img{
-        height: 100%;
+    > a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #333;
+
+      > img {
+        height: 40px;
       }
     }
   }
 
-  > ul{
+  > ul {
     list-style-type: none;
-    > li:first-child{
-      font-size: 1.2rem;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-    > li{
-      margin-bottom: 5px;
-      > a{
+    display: flex;
+    gap: 20px;
+
+    > li {
+      font-size: 14px;
+      > a {
         text-decoration: none;
-        > i{
-          
-          font-size: 20px;
-          margin-right: 10px;
+        color: #666;
+        transition: color 0.3s;
+
+        &:hover {
+          color: #333;
         }
       }
     }
@@ -56,26 +57,30 @@ const Footer = () => {
             alt="page logo"
           />
         </Link>
-        <p>Copyrights &copy; 2024 Giedrius Mikutavičius</p>
+        <p>© 2024 Giedrius Mikutavičius</p>
       </div>
       <ul>
-        <li><Link>Terms & Conditions</Link></li>
-        <li><Link>Privacy Policy</Link></li>
-        <li><Link>Terms of use</Link></li>
+        <li><Link to='/terms'>Terms & Conditions</Link></li>
+        <li><Link to='/privacy'>Privacy Policy</Link></li>
+        <li><Link to='/use'>Terms of Use</Link></li>
       </ul>
       <ul>
         <li>Socials</li>
         <li>
-          <Link><i className="bi bi-instagram"></i></Link>
-          <Link><i className="bi bi-facebook"></i></Link>
+          <Link to='/instagram'><i className="bi bi-instagram"></i></Link>
         </li>
         <li>
-          <Link><i className="bi bi-linkedin"></i></Link>
-          <Link><i className="bi bi-twitter-x"></i></Link>
+          <Link to='/facebook'><i className="bi bi-facebook"></i></Link>
+        </li>
+        <li>
+          <Link to='/linkedin'><i className="bi bi-linkedin"></i></Link>
+        </li>
+        <li>
+          <Link to='/twitter'><i className="bi bi-twitter-x"></i></Link>
         </li>
       </ul>
     </StyledFooter>
   );
-}
- 
+};
+
 export default Footer;

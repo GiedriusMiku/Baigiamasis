@@ -43,6 +43,8 @@ const Button = styled.button`
   }
 `;
 
+
+
 const Register = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -59,6 +61,7 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
+    localStorage.setItem('formData', JSON.stringify(formData));
   };
 
   return (
