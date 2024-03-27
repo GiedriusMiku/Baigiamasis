@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components'; // Import styled-components
+import styled from 'styled-components';
 
 const Wrapper = styled.div`
   max-width: 400px;
@@ -58,7 +58,6 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your validation logic here
     console.log('Form submitted:', formData);
   };
 
