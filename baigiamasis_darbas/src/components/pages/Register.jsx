@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import RoleCheckbox from './Roles';
 
 const Wrapper = styled.div`
   max-width: 400px;
@@ -43,15 +44,25 @@ const Button = styled.button`
   }
 `;
 
-
-
 const Register = () => {
+  const [isAdmin, setIsAdmin] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
     confirmPassword: '',
+    role: '',
   });
+
+const handleCheckboxChange = () => {
+  setIsAdmin(!isAdmin);
+  setFormData({
+    ...formData,
+    role: !isAdmin ? 'admin' : 'user',
+  });
+};
+
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -61,8 +72,25 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    localStorage.setItem('formData', JSON.stringify(formData));
-  };
+  
+    fetch('http://localhost:8090/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+    .then(response => response.json())
+  .then(data => {
+    console.log('Success:', data);
+    alert('Form submitted successfully');
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+    alert('Error submitting form');
+  });
+
+};
 
   return (
     <Wrapper>
@@ -100,6 +128,7 @@ const Register = () => {
           onChange={handleChange}
           required
         />
+        <RoleCheckbox isAdmin={isAdmin} onCheckboxChange={handleCheckboxChange} />
         <Button type="submit">Register</Button>
       </Form>
     </Wrapper>

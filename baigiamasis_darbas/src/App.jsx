@@ -8,6 +8,7 @@ import Login from './components/pages/Login';
 import Footer from './components/UI/Footer';
 import Register from './components/pages/Register';
 import Home from './components/pages/Home';
+import Cards from './components/pages/Cards';
 
 Modal.setAppElement('#root');
 
@@ -41,6 +42,7 @@ const App = () => {
       <Modal isOpen={showLoginForm} onRequestClose={() => setShowLoginForm(false)} style={customStyles}> 
         <Login />
       </Modal>
+      <Cards />
       <Footer />
     </Router>
   );

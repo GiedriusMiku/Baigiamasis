@@ -1,40 +1,64 @@
 {
-  "users":[
+  "users": [
     {
-      "id":1,
-      "name":"John",
-      "password":"password",
-      "role":"admin"
+      "id": "1",
+      "name": "John",
+      "password": "password",
+      "role": "admin"
     },
     {
-      "id":2,
-      "name":"Jane",
-      "password":"password1",
-      "role":"user"
+      "id": "2",
+      "name": "Jane",
+      "password": "password1",
+      "role": "user"
+    },
+    {
+      "id": "415f",
+      "name": "giedrius",
+      "email": "giedrius.mikutavicius1@gmail.com",
+      "password": "sss",
+      "confirmPassword": "sss",
+      "role": ""
+    },
+    {
+      "id": "aa53",
+      "name": "giedrius",
+      "email": "giedrius.mikutavicius1@gmail.com",
+      "password": "qqq",
+      "confirmPassword": "qqq",
+      "role": "admin"
+    },
+    {
+      "id": "52a9",
+      "name": "giedrius",
+      "email": "giedrius.mikutavicius1@gmail.com",
+      "password": "qqqq",
+      "confirmPassword": "qqqq",
+      "role": "user"
     }
   ],
-  "cards":[
+  "cards": [
     {
-      "id":1,
-      "userId":1,
-      "title":"Card 1",
-      "description":"Description 1",
-      "comments":[
+      "id": "1",
+      "userId": 1,
+      "title": "Card 1",
+      "description": "Description 1",
+      "comments": [
         {
-          "id":1,
-          "text":"Comment 1"
+          "id": 1,
+          "text": "Comment 1"
         }
       ]
     },
     {
-      "id":2,
-      "userId":2,
-      "title":"Card 2",
-      "description":"Description 2",
-        "comments":[
+      "id": "2",
+      "userId": 2,
+      "title": "Card 2",
+      "description": "Description 2",
+      "comments": [
         {
-          "id":2,
-          "text":"Comment 2"
+          "id": 2,
+          "text": "Comment 2"
         }
       ]
     }
