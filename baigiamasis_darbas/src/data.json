@@ -35,32 +35,56 @@
       "password": "qqqq",
       "confirmPassword": "qqqq",
       "role": "user"
-    }
-  ],
-  "cards": [
-    {
-      "id": "1",
-      "userId": 1,
-      "title": "Card 1",
-      "description": "Description 1",
-      "comments": [
-        {
-          "id": 1,
-          "text": "Comment 1"
-        }
-      ]
     },
     {
-      "id": "2",
-      "userId": 2,
-      "title": "Card 2",
-      "description": "Description 2",
-      "comments": [
-        {
-          "id": 2,
-          "text": "Comment 2"
-        }
-      ]
+      "id": "bad6",
+      "name": "giedrius1",
+      "email": "giedrius.mikutavicius1@gmail.com",
+      "password": "asas",
+      "confirmPassword": "asas",
+      "role": "admin"
+    },
+    {
+      "id": "48ce",
+      "name": "Petras",
+      "email": "petras@petras.lt",
+      "password": "passwordas",
+      "confirmPassword": "passwordas",
+      "role": ""
+    }
+  ],
+  "posts": [
+    {
+      "id": "75fc",
+      "title": "Is React really the right way to go?",
+      "message": "I'm not sure why React is the No.1 web framework/library right now. It just feels so unintuitive with the idea of functional component with dependencies, side-effects and hooks with the logic got spreaded all over the place. Such a pain in the butt to grasp the flow of the logic of my web page.",
+      "date": "2024-03-28T10:23:35.804Z",
+      "likes": 0,
+      "dislikes": 0
+    },
+    {
+      "id": "edae",
+      "title": "Why do people keep shouting \"PHP is Dead\" always?",
+      "message": "So, there are a lot of toxic devs who keep saying PHP is sh*t and is dead. It has no future etc. But for me, I really love it. So why do some hate it so much? And does it actually have no future? And is Laravel so bad?",
+      "date": "2024-03-28T10:24:59.982Z",
+      "likes": 0,
+      "dislikes": 0
+    },
+    {
+      "id": "3e47",
+      "title": "How can I stay motivated?",
+      "message": "I have started coding in Python as my first coding language recently and I am starting to have trouble with motivation (I was told by a friend that this is common at first). But he didn’t really give a very specific was to avoid stopping because of this. I don’t want to stop coding because I kind of need coding to do my hopefully future job.",
+      "date": "2024-03-28T10:26:37.449Z",
+      "likes": 0,
+      "dislikes": 0
+    },
+    {
+      "id": "8717",
+      "title": "How to Start Your Web Development Journey",
+      "message": "I want to start my career as a web developer. To become a professional developer what things i have to learn is there any free sites from where i can learn coding any suggestions.",
+      "date": "2024-03-28T10:28:43.600Z",
+      "likes": 0,
+      "dislikes": 0
     }
   ]
 }

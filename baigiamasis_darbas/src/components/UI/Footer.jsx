@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 const StyledFooter = styled.footer`
   height: 150px;
-  border-top: 2px solid gray;
   padding: 0 20px;
   display: flex;
   align-items: center;
@@ -19,7 +18,7 @@ const StyledFooter = styled.footer`
       display: flex;
       align-items: center;
       text-decoration: none;
-      color: #333;
+      color: #d6cbcb;
 
       > img {
         height: 40px;
@@ -33,14 +32,14 @@ const StyledFooter = styled.footer`
     gap: 20px;
 
     > li {
-      font-size: 14px;
+      font-size: 20px;
       > a {
         text-decoration: none;
-        color: #666;
+        color: #b8b1b1;
         transition: color 0.3s;
 
         &:hover {
-          color: #333;
+          color: #231350;
         }
       }
     }
