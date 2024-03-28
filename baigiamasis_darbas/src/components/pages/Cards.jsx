@@ -172,8 +172,8 @@ const Cards = () => {
       title, 
       message,  
       date: new Date().toISOString(), 
-      likes: 0, // Initialize likes to zero
-      dislikes: 0 // Initialize dislikes to zero
+      likes: 0,
+      dislikes: 0
     };
   
     const response = await fetch('http://localhost:8090/posts', {
@@ -185,11 +185,9 @@ const Cards = () => {
     });
   
     if (response.ok) {
-      console.log('Post successfully added to data.json');
       const responseData = await response.json();
       const updatedData = [...postData, responseData];
       setPostData(updatedData);
-      // Clear input fields after successful post
       setTitle('');
       setMessage('');
     } else {
@@ -203,7 +201,6 @@ const Cards = () => {
     });
 
     if (response.ok) {
-      console.log('Post successfully deleted');
       const updatedData = postData.filter(post => post.id !== postId);
       setPostData(updatedData);
     } else {
@@ -226,7 +223,6 @@ const Cards = () => {
     });
   
     if (response.ok) {
-      console.log('Post successfully edited');
       const updatedPostData = postData.map(post => {
         if (post.id === editedData.id) {
           return editedData;
@@ -236,7 +232,6 @@ const Cards = () => {
       setPostData(updatedPostData);
       setIsEditing(false);
       setEditData(null);
-      // Clear input fields after successful edit
       setTitle('');
       setMessage('');
     } else {
