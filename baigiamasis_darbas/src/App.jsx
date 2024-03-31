@@ -1,51 +1,46 @@
 import './App.css';
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Modal from 'react-modal';
-import RegButton from './components/pages/RegButton';
-import LoginButton from './components/pages/LoginButton';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { useContext } from 'react';
+import UsersContext from './contexts/UsersContext';
+import Header from './components/UI/Header';
+import Home from './components/pages/Home';
+import Register from './components/pages/Register';
 import Login from './components/pages/Login';
 import Footer from './components/UI/Footer';
-import Register from './components/pages/Register';
-import Home from './components/pages/Home';
-import Cards from './components/pages/Cards';
-
-Modal.setAppElement('#root');
-
-const customStyles = {
-  content : {
-    top : '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    width: '50%',
-    height: '60%',
-  }
-};
+import NewQuestions from './components/pages/NewQuestions';
+import EditQuestion from './components/pages/EditQuestion';
+import UserPage from './components/pages/UserPage';
+import OneQuestionPage from './components/pages/OneQuestionPage';
 
 const App = () => {
-  const [showForm, setShowForm] = useState(false);
-  const [showLoginForm, setShowLoginForm] = useState(false);
+
+  const { loginUser } = useContext(UsersContext);
 
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-      <RegButton setShowForm={setShowForm} />
-      <LoginButton setShowLogin={setShowLoginForm} />
-      <Modal isOpen={showForm} onRequestClose={() => setShowForm(false)} style={customStyles}>
-        <Register />
-      </Modal>
-      <Modal isOpen={showLoginForm} onRequestClose={() => setShowLoginForm(false)} style={customStyles}> 
-        <Login />
-      </Modal>
-      <Cards />
+    <>
+      <Header />
+      <main>
+        <Routes>
+          <Route index element={<Home />}/>
+          <Route path='addNew' element={
+              loginUser ? <NewQuestions /> : <Navigate to='/user/login' />
+            }/>
+          <Route path=':id' element={<OneQuestionPage />} />
+          <Route path=':id/edit' element={
+              loginUser ? <EditQuestion /> : <Navigate to='/user/login' />
+          } />
+          <Route path='/user'>
+            <Route path='register' element={<Register />} />
+            <Route path='login' element={<Login />} />
+            <Route path=':userName' element={
+              loginUser ? <UserPage /> : <Navigate to='/user/login' />
+              } />
+          </Route>
+        </Routes>
+      </main>
       <Footer />
-    </Router>
+    </>
   );
-};
+}
 
 export default App;

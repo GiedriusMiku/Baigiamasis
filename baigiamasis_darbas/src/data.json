@@ -1,90 +1,79 @@
 {
-  "users": [
+  "questions": [
     {
       "id": "1",
-      "name": "John",
-      "password": "password",
-      "role": "admin"
+      "userId": "0",
+      "topic": "PHP is Dead",
+      "question": "Why do people keep shouting `PHP is Dead` always?",
+      "likes": [
+        "0"
+      ],
+      "dislikes": [
+        "0"
+      ],
+      "comments": [
+        {
+          "id": "0",
+          "questionId": "1",
+          "userId": "1",
+          "text": "PHP has been around for a while. That means there is less hype about it compared to JavaScript which gets a new framework each week. That makes it seem like it's more popular, even though PHP powers most of the web."
+        },
+        {
+          "id": "b2783cff-04de-465e-96d9-d3ebd260d609",
+          "questionId": "1",
+          "userId": "7d13",
+          "text": "I don't think we should be swayed by what the masses say. PHP is a good programming language for creating web applications. No more, no less."
+        },
+        {
+          "id": "3634a50b-814b-4476-bd73-767baf9e7adc",
+          "questionId": "1",
+          "userId": "0",
+          "text": "If you are involved in the world of website security, programs other than PHP are useless."
+        }
+      ]
     },
     {
-      "id": "2",
-      "name": "Jane",
-      "password": "password1",
-      "role": "user"
+      "id": "04ef0cf0-6548-4946-b9bc-efcf63f7d14e",
+      "userId": "0558de70-afe4-4cf4-b070-3127813dc80d",
+      "topic": "labas",
+      "question": "asasassasasa",
+      "likes": [
+        "0558de70-afe4-4cf4-b070-3127813dc80d"
+      ],
+      "dislikes": [],
+      "comments": []
     },
     {
-      "id": "415f",
-      "name": "giedrius",
-      "email": "giedrius.mikutavicius1@gmail.com",
-      "password": "sss",
-      "confirmPassword": "sss",
-      "role": ""
-    },
-    {
-      "id": "aa53",
-      "name": "giedrius",
-      "email": "giedrius.mikutavicius1@gmail.com",
-      "password": "qqq",
-      "confirmPassword": "qqq",
-      "role": "admin"
-    },
-    {
-      "id": "52a9",
-      "name": "giedrius",
-      "email": "giedrius.mikutavicius1@gmail.com",
-      "password": "qqqq",
-      "confirmPassword": "qqqq",
-      "role": "user"
-    },
-    {
-      "id": "bad6",
-      "name": "giedrius1",
-      "email": "giedrius.mikutavicius1@gmail.com",
-      "password": "asas",
-      "confirmPassword": "asas",
-      "role": "admin"
-    },
-    {
-      "id": "48ce",
-      "name": "Petras",
-      "email": "petras@petras.lt",
-      "password": "passwordas",
-      "confirmPassword": "passwordas",
-      "role": ""
+      "id": "9f958f5b-ec4e-4e23-82db-8fc685276bf9",
+      "userId": "0558de70-afe4-4cf4-b070-3127813dc80d",
+      "topic": "labasqwqwq",
+      "question": "asasa11s1s1wqwq",
+      "likes": [],
+      "dislikes": [],
+      "comments": []
     }
   ],
-  "posts": [
+  "users": [
     {
-      "id": "75fc",
-      "title": "Is React really the right way to go?",
-      "message": "I'm not sure why React is the No.1 web framework/library right now. It just feels so unintuitive with the idea of functional component with dependencies, side-effects and hooks with the logic got spreaded all over the place. Such a pain in the butt to grasp the flow of the logic of my web page.",
-      "date": "2024-03-28T10:23:35.804Z",
-      "likes": 0,
-      "dislikes": 0
+      "id": "0",
+      "userName": "Jonas",
+      "email": "jonaitis@gmail.com",
+      "password": "$2a$10$IzdH/VR7OWOGRhy4iU8dROR38T.lDN/zk4Jc8W9vSzV8OVVqJCmy.",
+      "passwordNoHash": "123456"
     },
     {
-      "id": "edae",
-      "title": "Why do people keep shouting \"PHP is Dead\" always?",
-      "message": "So, there are a lot of toxic devs who keep saying PHP is sh*t and is dead. It has no future etc. But for me, I really love it. So why do some hate it so much? And does it actually have no future? And is Laravel so bad?",
-      "date": "2024-03-28T10:24:59.982Z",
-      "likes": 0,
-      "dislikes": 0
+      "id": "8448e385-b81e-4dd9-bda1-852c35bce639",
+      "userName": "testas12",
+      "email": "testas@tests.lt",
+      "password": "$2a$10$M8NaVtC/bITTkg5O0dthC.05ukJZAgthw8EXCHgtPTW/jfJppP5aC",
+      "passwordNoHash": "Test123"
     },
     {
-      "id": "3e47",
-      "title": "How can I stay motivated?",
-      "message": "I have started coding in Python as my first coding language recently and I am starting to have trouble with motivation (I was told by a friend that this is common at first). But he didn’t really give a very specific was to avoid stopping because of this. I don’t want to stop coding because I kind of need coding to do my hopefully future job.",
-      "date": "2024-03-28T10:26:37.449Z",
-      "likes": 0,
-      "dislikes": 0
-    },
-    {
-      "id": "8717",
-      "title": "How to Start Your Web Development Journey",
-      "message": "I want to start my career as a web developer. To become a professional developer what things i have to learn is there any free sites from where i can learn coding any suggestions.",
-      "date": "2024-03-28T10:28:43.600Z",
-      "likes": 0,
-      "dislikes": 0
+      "id": "0558de70-afe4-4cf4-b070-3127813dc80d",
+      "userName": "Giedrius",
+      "email": "giedrius.mikutavicius1@gmail.com",
+      "password": "$2a$10$U8eF2oqsI5obiDVSXz8ed.xLq/SlxKpOONLRXkMLFRgyMWx/gdgHS",
+      "passwordNoHash": "Giedrius11"
     }
   ]
 }
