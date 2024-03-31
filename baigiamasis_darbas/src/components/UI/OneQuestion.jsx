@@ -11,6 +11,12 @@ const StyledDiv = styled.div`
     background-color: #f0f0f0;
     border-radius: 10px;
 
+    > p {
+        color: #3f51b5;
+        font-size: 1.2em;
+        text-align: left;
+    }
+
     > h4 {
         color: #3f51b5;
         font-size: 1.5em;
@@ -67,11 +73,22 @@ const OneQuestion = ({data, location}) => {
 
     const { setQuestions } = useContext(QuestionsContext);
     const { loginUser } = useContext(UsersContext);
+    const likesCount = data.likesCount || 0;
+    const dislikesCount = data.dislikesCount || 0;
+
+    const isEdited = data.isEdited;
+    const CreateDate = new Date(data.createdAt).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+    });
 
     return ( 
         <StyledDiv>
             <h4>{data.topic}</h4>
             <h2>{data.question}</h2>
+            <p>Created: {CreateDate}</p>
+            {isEdited && <p style={{ fontSize: "0.8em", color: "#888" }}>Edited</p>}
             <Link to={`/${data.id}`}>More</Link>
                 <div>
                     

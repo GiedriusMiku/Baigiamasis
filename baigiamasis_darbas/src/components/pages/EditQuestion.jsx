@@ -141,6 +141,7 @@ const EditQuestion = () => {
                 </div>
                 <button type='submit'>Edit</button>
             </form>
+            
         </StyledSection>
      );
 }

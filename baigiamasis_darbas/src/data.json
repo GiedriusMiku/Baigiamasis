@@ -3,7 +3,7 @@
     {
       "id": "1",
       "userId": "0",
-      "topic": "PHP is Dead",
+      "topic": "PHP is Dead???",
       "question": "Why do people keep shouting `PHP is Dead` always?",
       "likes": [
         "0"
@@ -11,55 +11,20 @@
       "dislikes": [
         "0"
       ],
-      "comments": [
-        {
-          "id": "0",
-          "questionId": "1",
-          "userId": "1",
-          "text": "PHP has been around for a while. That means there is less hype about it compared to JavaScript which gets a new framework each week. That makes it seem like it's more popular, even though PHP powers most of the web."
-        },
-        {
-          "id": "b2783cff-04de-465e-96d9-d3ebd260d609",
-          "questionId": "1",
-          "userId": "7d13",
-          "text": "I don't think we should be swayed by what the masses say. PHP is a good programming language for creating web applications. No more, no less."
-        },
-        {
-          "id": "3634a50b-814b-4476-bd73-767baf9e7adc",
-          "questionId": "1",
-          "userId": "0",
-          "text": "If you are involved in the world of website security, programs other than PHP are useless."
-        }
-      ]
+      "createdAt": "2024-03-31T18:14:32.576Z"
     },
     {
-      "id": "04ef0cf0-6548-4946-b9bc-efcf63f7d14e",
+      "id": "97749b01-f808-4a21-8cb2-9ea1b4e004a6",
       "userId": "0558de70-afe4-4cf4-b070-3127813dc80d",
-      "topic": "labas",
-      "question": "asasassasasa",
+      "topic": "aaa212121",
+      "question": "asasasasaaa",
       "likes": [
         "0558de70-afe4-4cf4-b070-3127813dc80d"
       ],
-      "dislikes": [],
-      "comments": []
-    },
-    {
-      "id": "9f958f5b-ec4e-4e23-82db-8fc685276bf9",
-      "userId": "0558de70-afe4-4cf4-b070-3127813dc80d",
-      "topic": "labasqwqwq",
-      "question": "asasa11s1s1wqwq",
-      "likes": [],
-      "dislikes": [],
-      "comments": []
-    },
-    {
-      "id": "cfc767ca-d45b-45dc-a7b0-f1fd6808de13",
-      "userId": "9b536704-bf27-41b5-8386-effcd17d20d8",
-      "topic": "juozo klausimas 2",
-      "question": "juozas juozas juozas juozas ",
-      "likes": [],
-      "dislikes": [],
-      "comments": []
+      "dislikes": [
+        "0558de70-afe4-4cf4-b070-3127813dc80d"
+      ],
+      "createdAt": "2024-03-31T18:14:32.576Z"
     }
   ],
   "users": [

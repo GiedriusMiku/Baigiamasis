@@ -95,7 +95,7 @@ const NewQuestions = () => {
                 question: values.question,
                 likes: [],
                 dislikes: [],
-                comments: []
+                
             }
             setQuestions({
                 type: QuestionsActionTypes.addNew,
@@ -110,8 +110,8 @@ const NewQuestions = () => {
                 .required('Topic is required')
                 .trim(),
             question: yup.string()
-                .min(10, 'Question must be at least 10 characters')
-                .max(100, 'Question must be at most 100 characters')
+                .min(10, 'Question must be at least 5 characters')
+                .max(100, 'Question must be at most 50 characters')
                 .required('Question is required')
                 .trim()
         })
