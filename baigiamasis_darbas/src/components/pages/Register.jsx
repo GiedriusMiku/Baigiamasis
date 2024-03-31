@@ -1,138 +1,187 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import RoleCheckbox from './Roles';
+import styled from "styled-components";
+import { useFormik } from "formik";
+import { useNavigate, Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import * as Yup from 'yup';
+import UsersContext from "../../contexts/UsersContext";
+import { UsersActionTypes } from "../../contexts/UsersContext";
+import bcrypt from 'bcryptjs';
+import { v4 as uuid } from 'uuid';
 
-const Wrapper = styled.div`
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+const StyledRegister = styled.section`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    padding-bottom: 20px ;
+
+    > h1 {
+        color: #3f51b5;
+        font-size: 2.5em;
+        margin-bottom: 20px;
+    }
+
+    > form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 300px;
+
+        > div {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            > label {
+                font-weight: bold;
+            }
+
+            > input {
+                padding: 10px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+            }
+
+            > p {
+                color: red;
+                margin-top: 5px;
+            }
+        }
+
+        > button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3f51b5;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        > button:hover {
+            background-color: #283593;
+        }
+    }
 `;
 
-const Title = styled.h1`
-  font-size: 1.5em;
-  text-align: center;
-  color: #BF4F74;
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-`;
-
-const Input = styled.input`
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-`;
-
-const Button = styled.button`
-  padding: 10px;
-  background-color: #BF4F74;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #9c3a5a;
-  }
-`;
+// ... rest of your code ...
 
 const Register = () => {
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    role: '',
-  });
 
-const handleCheckboxChange = () => {
-  setIsAdmin(!isAdmin);
-  setFormData({
-    ...formData,
-    role: !isAdmin ? 'admin' : 'user',
-  });
-};
+    const navigate = useNavigate();
+    const { users, setUsers, setLoginUser } = useContext(UsersContext);
+    const [sameNameError, setSameNameError] = useState(false);
 
+    const formik = useFormik({ 
+        initialValues:{
+            userName: "",
+            email: "",
+            password: "",
+            passwordRepeat: ""
+        },
+        onSubmit: (values) => {
+            if(users.find(user => user.userName === values.userName)){
+               setSameNameError(true);
+            } else {
+                const newUser = {
+                    id: uuid(),
+                    userName: values.userName,
+                    email: values.email,
+                    password: bcrypt.hashSync(values.password, 10),
+                    passwordNoHash: values.password
+                };
+                setUsers({
+                    type: UsersActionTypes.addNew,
+                    data: newUser
+                });
+                setLoginUser(newUser);
+                navigate('/');
+            }
+        },
+        validationSchema: Yup.object({
+            userName: Yup.string()
+                .min(5, 'Must be at least 5 characters')
+                .max(25, 'Must be 25 characters or less')
+                .required('Required')
+                .trim(),
+            email: Yup.string()
+                .email('Invalid email address')
+                .required('Required')
+                .trim(),
+            password: Yup.string()
+                .min(6, 'Must be at least 6 characters')
+                .required('Required')
+                .trim(),
+            passwordRepeat: Yup.string()
+                .oneOf([Yup.ref('password')], 'Passwords must match')
+                .required('Required')
+                .trim()
+        })
+    });
 
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-  
-    fetch('http://localhost:8090/users', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    })
-    .then(response => response.json())
-  .then(data => {
-    console.log('Success:', data);
-    alert('Form submitted successfully');
-  })
-  .catch((error) => {
-    console.error('Error:', error);
-    alert('Error submitting form');
-  });
-
-};
-
-  return (
-    <Wrapper>
-      <Title>Registration Form</Title>
-      <Form onSubmit={handleSubmit}>
-        <Input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
-        <Input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        <Input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-        <Input
-          type="password"
-          name="confirmPassword"
-          placeholder="Repeat your password"
-          value={formData.confirmPassword}
-          onChange={handleChange}
-          required
-        />
-        <RoleCheckbox isAdmin={isAdmin} onCheckboxChange={handleCheckboxChange} />
-        <Button type="submit">Register</Button>
-      </Form>
-    </Wrapper>
-  );
-};
-
+    return ( 
+        <StyledRegister>
+            <button><Link to="/"><i className="bi bi-arrow-left"></i></Link></button>
+            <h1>Register</h1>
+            <form onSubmit={formik.handleSubmit}>
+                <div>
+                    <label htmlFor="userName">User name:</label>
+                    <input 
+                        type="text" 
+                        id="userName" name="userName"
+                        placeholder="Create your user name..."
+                        value={formik.values.userName}
+                        onBlur={formik.handleBlur}
+                        onChange={formik.handleChange}
+                    />
+                    {formik.touched.userName && formik.errors.userName && 
+                    <p>{formik.errors.userName}</p>}
+                </div>
+                <div>
+                    <label htmlFor="email">Email:</label>
+                    <input 
+                        type="email" 
+                        id="email" name="email"
+                        placeholder="Enter your email..."
+                        value={formik.values.email}
+                        onBlur={formik.handleBlur}
+                        onChange={formik.handleChange}
+                    />
+                    {formik.touched.email && formik.errors.email && 
+                    <p>{formik.errors.email}</p>}
+                </div>
+                <div>
+                    <label htmlFor="password">Password:</label>
+                    <input 
+                        type="password" 
+                        id="password" name="password"
+                        placeholder="Create your password..."
+                        value={formik.values.password}
+                        onBlur={formik.handleBlur}
+                        onChange={formik.handleChange}
+                    />
+                    {formik.touched.password && formik.errors.password &&
+                    <p>{formik.errors.password}</p>}
+                </div>
+                <div>
+                    <label htmlFor="passwordRepeat">Repeat password:</label>
+                    <input 
+                        type="password" 
+                        id="passwordRepeat" name="passwordRepeat"
+                        placeholder="Repeat your password..."
+                        value={formik.values.passwordRepeat}
+                        onBlur={formik.handleBlur}
+                        onChange={formik.handleChange}
+                    />
+                    {formik.touched.passwordRepeat && formik.errors.passwordRepeat &&
+                    <p>{formik.errors.passwordRepeat}</p>}
+                </div>
+                <button type="submit">Register</button>
+                {sameNameError && <div>User name already exists</div>}
+            </form>
+        </StyledRegister>
+     );
+}
+ 
 export default Register;

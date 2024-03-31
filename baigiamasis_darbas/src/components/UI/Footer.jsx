@@ -8,6 +8,7 @@ const StyledFooter = styled.footer`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: #3f51b5;
 
   > div {
     display: flex;
@@ -18,7 +19,7 @@ const StyledFooter = styled.footer`
       display: flex;
       align-items: center;
       text-decoration: none;
-      color: #d6cbcb;
+      color: white;
 
       > img {
         height: 40px;
@@ -35,11 +36,11 @@ const StyledFooter = styled.footer`
       font-size: 20px;
       > a {
         text-decoration: none;
-        color: #b8b1b1;
+        color: white;
         transition: color 0.3s;
 
         &:hover {
-          color: #231350;
+          color: #283593;
         }
       }
     }

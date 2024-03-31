@@ -51,6 +51,15 @@
       "likes": [],
       "dislikes": [],
       "comments": []
+    },
+    {
+      "id": "cfc767ca-d45b-45dc-a7b0-f1fd6808de13",
+      "userId": "9b536704-bf27-41b5-8386-effcd17d20d8",
+      "topic": "juozo klausimas 2",
+      "question": "juozas juozas juozas juozas ",
+      "likes": [],
+      "dislikes": [],
+      "comments": []
     }
   ],
   "users": [
@@ -74,6 +83,13 @@
       "email": "giedrius.mikutavicius1@gmail.com",
       "password": "$2a$10$U8eF2oqsI5obiDVSXz8ed.xLq/SlxKpOONLRXkMLFRgyMWx/gdgHS",
       "passwordNoHash": "Giedrius11"
+    },
+    {
+      "id": "9b536704-bf27-41b5-8386-effcd17d20d8",
+      "userName": "Juozas",
+      "email": "juozas@juozas.lt",
+      "password": "$2a$10$u7LPiVL0XPp/Zob9OPX8tu1eeAWq9me0Ea5JmF3LQHXo.8ecJcZBC",
+      "passwordNoHash": "Juozukas123"
     }
   ]
 }
